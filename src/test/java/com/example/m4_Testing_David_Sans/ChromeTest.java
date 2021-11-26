@@ -2,6 +2,7 @@ package com.example.m4_Testing_David_Sans;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,7 +28,7 @@ public class ChromeTest {
     void tearDown() {
         driver.quit();
     }
-
+@DisplayName("Verificamos que abre la web correcta con el titulo esperado")
     @Test
     void testTrueWeb(){
         // Abrir página web

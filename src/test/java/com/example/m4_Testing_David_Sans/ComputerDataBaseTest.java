@@ -2,6 +2,7 @@ package com.example.m4_Testing_David_Sans;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,7 +34,7 @@ public class ComputerDataBaseTest {
     void tearDown() {
         driver.quit();
     }
-
+@DisplayName("Verificamos que se encuentran el numero correcto con este filtro")
     @Test
     void FindGroupTest() {
         // Abrir página web
@@ -48,6 +49,8 @@ driver.findElement(By.id("searchbox")).sendKeys("Asci");
 driver.findElement(By.cssSelector("#searchsubmit")).click();
 assertEquals("6 computers found", driver.findElement(By.xpath("/html/body/section/h1")).getText());
        }
+
+       @DisplayName("Verificamos que encuentra un producto en concreto")
     @Test
     void FindOneTest() {
         // Abrir página web
@@ -61,6 +64,7 @@ assertEquals("6 computers found", driver.findElement(By.xpath("/html/body/sectio
         driver.findElement(By.cssSelector("#searchsubmit")).click();
         assertEquals("One computer found", driver.findElement(By.xpath("/html/body/section/h1")).getText());
     }
+    @DisplayName("Verificamos que crea un producto")
     @Test
     void AddnewTest() {
         // Abrir página web
@@ -87,6 +91,7 @@ assertEquals("6 computers found", driver.findElement(By.xpath("/html/body/sectio
          */
         assertEquals("Done !",driver.findElement(By.xpath("/html/body/section/div[1]/strong")).getText());
     }
+    @DisplayName("Comprobamos que al cancelar, no crea el producto")
     @Test
     void AddnewCanceledTest() {
         // Abrir página web
@@ -109,6 +114,7 @@ assertEquals("6 computers found", driver.findElement(By.xpath("/html/body/sectio
         assertEquals("574 computers found",driver.findElement(By.xpath("/html/body/section/h1")).getText());
 
     }
+    @DisplayName("Comprobamos que al no introducir nombre, no crea el producto")
     @Test
     void AddnewBadNameTest() {
         // Abrir página web
